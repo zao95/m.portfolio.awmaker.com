@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "../styles/Mobile.sass"
 
 const Mobile = () => {
+	const [isMobile, setIsMobile] = useState(false)
+	useEffect(() => {
+		let filter = "win16|win32|win64|mac"
+		if (navigator.platform) {
+			setIsMobile(filter.indexOf(navigator.platform.toLowerCase()) < 0)
+		}
+		!isMobile && (window.location.href = "https://portfolio.awmaker.com/")
+	}, [isMobile])
 	return (
 		<>
             <div id="mobileContainer">
