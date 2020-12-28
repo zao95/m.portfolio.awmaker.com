@@ -1,0 +1,64 @@
+$mobile: 768px
+$visible: 1232px
+
+$background: #252526
+$white: #ffffff
+$black: #000000
+$gray:  #707070
+$grayTransparent:  rgba(0, 0, 0, 0.44)
+$error: #ffe7e6
+$errorPoint: #db4b46
+
+@mixin desktop
+    @media screen and (min-width: #{$mobile})
+        @content
+
+#mobileContainer
+    z-index: 999
+    position: fixed
+    top: 0
+    left: 0
+    background-image: url("../assets/images/pattern.png")
+    background-size: auto
+    background-repeat: repeat
+    background-color: #222
+    margin: 0 auto
+    width: 100vw
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    overflow: auto
+    &::before
+        z-index: 0
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100vh
+        background-image: url("../assets/images/loading_gradient.png")
+        background-size: 100% 100%
+        background-repeat: no-repeat
+        opacity: 0.32
+        mix-blend-mode: darken
+    .logo
+        width: 80px
+        height: 80px
+        background-image: url("../assets/images/logo_white.svg")
+        background-size: 100% 100%
+        background-repeat: no-repeat
+    .message
+        display: flex
+        flex-direction: column
+        align-items: center
+        p
+            color: $white
+            margin: 4px
+            font-size: 1.1em
+            &:first-child
+                margin-top: 32px
+            &:last-child
+                margin-top: 24px
+                font-size: 0.8em
